@@ -26,15 +26,15 @@ p3 = win.addPlot(title="señal 3",row=3, col=0)  # creates empty space for the p
 p3.setYRange(0,1050,padding=None,update=False)
 curve3 = p3.plot(pen=(50,230,25))
 
-graphWidth1 = 100                       # width of the window displaying the curve
+graphWidth1 = 500                       # width of the window displaying the curve
 Xm1 = linspace(0,0,graphWidth1)          # create array that will contain the relevant time series     
 ptr1 = 0                     # set first x position
 
-graphWidth2 = 100                       # width of the window displaying the curve
+graphWidth2 = 500                       # width of the window displaying the curve
 Xm2 = linspace(0,0,graphWidth2)          # create array that will contain the relevant time series     
 ptr2 = 0                     # set first x position
 
-graphWidth3 = 100                       # width of the window displaying the curve
+graphWidth3 = 500                       # width of the window displaying the curve
 Xm3 = linspace(0,0,graphWidth3)          # create array that will contain the relevant time series     
 ptr3 = 0  
 
