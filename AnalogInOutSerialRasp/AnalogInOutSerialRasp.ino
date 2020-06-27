@@ -52,10 +52,10 @@ void loop() {
   sensor3Value = analogRead(analogInPin2);
   sensor4Value = analogRead(analogInPin3);
 
-  inDelay = map(sensor4Value,0,1023,20,26);
+  inDelay = map(sensor4Value,0,1023,15,21);
 
   switch (inDelay){
-    case 20:
+    case 15:
       digitalWrite(8,LOW);
       digitalWrite(7,LOW);
       digitalWrite(6,LOW);
@@ -66,7 +66,7 @@ void loop() {
       
     break;
       
-    case 21:
+    case 16:
       digitalWrite(8,LOW);
       digitalWrite(7,LOW);
       digitalWrite(6,LOW);
@@ -76,7 +76,7 @@ void loop() {
       digitalWrite(2,HIGH);
     break;
       
-    case 22:
+    case 17:
       digitalWrite(8,LOW);
       digitalWrite(7,LOW);
       digitalWrite(6,LOW);
@@ -86,7 +86,7 @@ void loop() {
       digitalWrite(2,HIGH);
     break;
 
-    case 23:
+    case 18:
       digitalWrite(8,LOW);
       digitalWrite(7,LOW);
       digitalWrite(6,LOW);
@@ -96,7 +96,7 @@ void loop() {
       digitalWrite(2,HIGH);
     break;
 
-    case 24:
+    case 19:
       digitalWrite(8,LOW);
       digitalWrite(7,LOW);
       digitalWrite(6,HIGH);
@@ -106,7 +106,7 @@ void loop() {
       digitalWrite(2,HIGH);
     break;
 
-    case 25:
+    case 20:
       digitalWrite(8,LOW);
       digitalWrite(7,HIGH);
       digitalWrite(6,HIGH);
@@ -116,7 +116,7 @@ void loop() {
       digitalWrite(2,HIGH);
     break;
 
-    case 26:
+    case 21:
       digitalWrite(8,HIGH);
       digitalWrite(7,HIGH);
       digitalWrite(6,HIGH);
