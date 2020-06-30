@@ -3,10 +3,12 @@ from numpy import *
 from pyqtgraph.Qt import QtGui, QtCore
 import pyqtgraph as pg
 import serial
+import time
 
 # Create object serial port
 
 ser = serial.Serial('/dev/ttyACM0',115200)
+global curve1, curve2, curve3, ptr1, ptr2, ptr3, Xm1, Xm2, Xm3 
 
 ### START QtApp #####
 app = QtGui.QApplication([])            # you MUST do this once (initialize things)
@@ -40,33 +42,38 @@ ptr3 = 0
 
 # Realtime data plot. Each time this function is called, the data display is updated
 def update():
-    global curve1, curve2, curve3, ptr1, ptr2, ptr3, Xm1, Xm2, Xm3    
-    Xm1[:-1] = Xm1[1:]                      # shift data in the temporal mean 1 sample left
-    Xm2[:-1] = Xm2[1:]
-    Xm3[:-1] = Xm3[1:]
-    string = ser.readline()                # read line (single value) from the serial port
-    stringData = string.split(b',')
-    if(len(stringData)==3):
-        analog1 = int(stringData[0])
-        analog2 = int(stringData[1])
-        analog3 = int(stringData[2].split(b'\r\n')[0])
-        Xm1[-1] = analog1                 # vector containing the instantaneous values      
-        Xm2[-1] = analog2 
-        Xm3[-1] = analog3 
-        #ptr1 += 1                              # update x position for displaying the curve
-        #ptr2 += 1 
-        #ptr3 += 1 
-        
-        curve1.setData(Xm1)                     # set the curve with this data
-        curve2.setData(Xm2)
-        curve3.setData(Xm3)
-        
-        #curve1.setPos(ptr1,0)                   # set x position in the graph to 0
-        #curve2.setPos(ptr2,0)  
-        #curve2.setPos(ptr2,0)
-        
-        QtGui.QApplication.processEvents()    # you MUST process the plot now
-
+    start1 = time.time()
+    if (ser.inWaiting()>0):
+        Xm1[:-1] = Xm1[1:]                      # shift data in the temporal mean 1 sample left
+        Xm2[:-1] = Xm2[1:]
+        Xm3[:-1] = Xm3[1:]
+        string = ser.readline()                # read line (single value) from the serial port
+        stringData = string.split(b',')
+        if(len(stringData)==3):
+            analog1 = int(stringData[0])
+            analog2 = int(stringData[1])
+            analog3 = int(stringData[2].split(b'\r\n')[0])
+            Xm1[-1] = analog1                 # vector containing the instantaneous values      
+            Xm2[-1] = analog2 
+            Xm3[-1] = analog3
+            stop1 = time.time()
+            procData = stop1-start1
+            #ptr1 += 1                              # update x position for displaying the curve
+            #ptr2 += 1 
+            #ptr3 += 1 
+            
+            curve1.setData(Xm1)                     # set the curve with this data
+            curve2.setData(Xm2)
+            curve3.setData(Xm3)
+            
+            #curve1.setPos(ptr1,0)                   # set x position in the graph to 0
+            #curve2.setPos(ptr2,0)  
+            #curve2.setPos(ptr2,0)
+            start2 = time.time()
+            QtGui.QApplication.processEvents()    # you MUST process the plot now
+            stop2 = time.time()
+            graphData = stop2 - start2
+            print("procData: ", procData," graphData: ", graphData)
 ### MAIN PROGRAM #####    
 # this is a brutal infinite loop calling your realtime data plot
 while True: update()
