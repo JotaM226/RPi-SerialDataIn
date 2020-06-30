@@ -136,5 +136,5 @@ void loop() {
 //  Serial.println(inDelay);
   
 
-  delay(inDelay);
+  delay(50);
 }
