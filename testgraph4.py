@@ -7,7 +7,7 @@ import time
 
 # Create object serial port
 
-ser = serial.Serial('/dev/ttyACM0',115200)
+
 global curve1, curve2, curve3, ptr1, ptr2, ptr3, Xm1, Xm2, Xm3 
 
 ### START QtApp #####
@@ -39,7 +39,7 @@ ptr2 = 0                     # set first x position
 graphWidth3 = 500                       # width of the window displaying the curve
 Xm3 = linspace(0,0,graphWidth3)          # create array that will contain the relevant time series     
 ptr3 = 0  
-
+ser = serial.Serial('/dev/ttyACM0',115200)
 # Realtime data plot. Each time this function is called, the data display is updated
 def update():
     #start = time.time()
@@ -50,12 +50,12 @@ def update():
         string = ser.readline()                # read line (single value) from the serial port
         stringData = string.split(b',')
         if(len(stringData)==3):
-            analog1 = int(stringData[0])
-            analog2 = int(stringData[1])
-            analog3 = int(stringData[2].split(b'\r\n')[0])
-            Xm1[-1] = analog1                 # vector containing the instantaneous values      
-            Xm2[-1] = analog2 
-            Xm3[-1] = analog3
+            Xm1[-1] = int(stringData[0])
+            Xm2[-1] = int(stringData[1])
+            Xm3[-1] = int(stringData[2].split(b'\r\n')[0])
+            #Xm1[-1] = analog1                 # vector containing the instantaneous values      
+            #Xm2[-1] = analog2 
+            #Xm3[-1] = analog3
             
             
             #ptr1 += 1                              # update x position for displaying the curve
