@@ -50,82 +50,82 @@ void loop() {
   sensor1Value = analogRead(analogInPin0);
   sensor2Value = analogRead(analogInPin1);
   sensor3Value = analogRead(analogInPin2);
-  sensor4Value = analogRead(analogInPin3);
-
-  inDelay = map(sensor4Value,0,1023,15,21);
-
-  switch (inDelay){
-    case 15:
-      digitalWrite(8,LOW);
-      digitalWrite(7,LOW);
-      digitalWrite(6,LOW);
-      digitalWrite(5,LOW);
-      digitalWrite(4,LOW);
-      digitalWrite(3,LOW);
-      digitalWrite(2,HIGH);
-      
-    break;
-      
-    case 16:
-      digitalWrite(8,LOW);
-      digitalWrite(7,LOW);
-      digitalWrite(6,LOW);
-      digitalWrite(5,LOW);
-      digitalWrite(4,LOW);
-      digitalWrite(3,HIGH);
-      digitalWrite(2,HIGH);
-    break;
-      
-    case 17:
-      digitalWrite(8,LOW);
-      digitalWrite(7,LOW);
-      digitalWrite(6,LOW);
-      digitalWrite(5,LOW);
-      digitalWrite(4,HIGH);
-      digitalWrite(3,HIGH);
-      digitalWrite(2,HIGH);
-    break;
-
-    case 18:
-      digitalWrite(8,LOW);
-      digitalWrite(7,LOW);
-      digitalWrite(6,LOW);
-      digitalWrite(5,HIGH);
-      digitalWrite(4,HIGH);
-      digitalWrite(3,HIGH);
-      digitalWrite(2,HIGH);
-    break;
-
-    case 19:
-      digitalWrite(8,LOW);
-      digitalWrite(7,LOW);
-      digitalWrite(6,HIGH);
-      digitalWrite(5,HIGH);
-      digitalWrite(4,HIGH);
-      digitalWrite(3,HIGH);
-      digitalWrite(2,HIGH);
-    break;
-
-    case 20:
-      digitalWrite(8,LOW);
-      digitalWrite(7,HIGH);
-      digitalWrite(6,HIGH);
-      digitalWrite(5,HIGH);
-      digitalWrite(4,HIGH);
-      digitalWrite(3,HIGH);
-      digitalWrite(2,HIGH);
-    break;
-
-    case 21:
-      digitalWrite(8,HIGH);
-      digitalWrite(7,HIGH);
-      digitalWrite(6,HIGH);
-      digitalWrite(5,HIGH);
-      digitalWrite(4,HIGH);
-      digitalWrite(3,HIGH);
-      digitalWrite(2,HIGH);
-    break;
-  }
+//  sensor4Value = analogRead(analogInPin3);
+//
+//  inDelay = map(sensor4Value,0,1023,15,21);
+//
+//  switch (inDelay){
+//    case 15:
+//      digitalWrite(8,LOW);
+//      digitalWrite(7,LOW);
+//      digitalWrite(6,LOW);
+//      digitalWrite(5,LOW);
+//      digitalWrite(4,LOW);
+//      digitalWrite(3,LOW);
+//      digitalWrite(2,HIGH);
+//      
+//    break;
+//      
+//    case 16:
+//      digitalWrite(8,LOW);
+//      digitalWrite(7,LOW);
+//      digitalWrite(6,LOW);
+//      digitalWrite(5,LOW);
+//      digitalWrite(4,LOW);
+//      digitalWrite(3,HIGH);
+//      digitalWrite(2,HIGH);
+//    break;
+//      
+//    case 17:
+//      digitalWrite(8,LOW);
+//      digitalWrite(7,LOW);
+//      digitalWrite(6,LOW);
+//      digitalWrite(5,LOW);
+//      digitalWrite(4,HIGH);
+//      digitalWrite(3,HIGH);
+//      digitalWrite(2,HIGH);
+//    break;
+//
+//    case 18:
+//      digitalWrite(8,LOW);
+//      digitalWrite(7,LOW);
+//      digitalWrite(6,LOW);
+//      digitalWrite(5,HIGH);
+//      digitalWrite(4,HIGH);
+//      digitalWrite(3,HIGH);
+//      digitalWrite(2,HIGH);
+//    break;
+//
+//    case 19:
+//      digitalWrite(8,LOW);
+//      digitalWrite(7,LOW);
+//      digitalWrite(6,HIGH);
+//      digitalWrite(5,HIGH);
+//      digitalWrite(4,HIGH);
+//      digitalWrite(3,HIGH);
+//      digitalWrite(2,HIGH);
+//    break;
+//
+//    case 20:
+//      digitalWrite(8,LOW);
+//      digitalWrite(7,HIGH);
+//      digitalWrite(6,HIGH);
+//      digitalWrite(5,HIGH);
+//      digitalWrite(4,HIGH);
+//      digitalWrite(3,HIGH);
+//      digitalWrite(2,HIGH);
+//    break;
+//
+//    case 21:
+//      digitalWrite(8,HIGH);
+//      digitalWrite(7,HIGH);
+//      digitalWrite(6,HIGH);
+//      digitalWrite(5,HIGH);
+//      digitalWrite(4,HIGH);
+//      digitalWrite(3,HIGH);
+//      digitalWrite(2,HIGH);
+//    break;
+//  }
 
   Serial.print(sensor1Value);
   Serial.print(",");
@@ -136,5 +136,5 @@ void loop() {
 //  Serial.println(inDelay);
   
 
-  delay(50);
+  delay(19);
 }
