@@ -42,7 +42,7 @@ ptr3 = 0
 
 # Realtime data plot. Each time this function is called, the data display is updated
 def update():
-    start = time.time()
+    #start = time.time()
     if (ser.inWaiting()>0):
         Xm1[:-1] = Xm1[1:]                      # shift data in the temporal mean 1 sample left
         Xm2[:-1] = Xm2[1:]
@@ -72,9 +72,9 @@ def update():
             
             QtGui.QApplication.processEvents()    # you MUST process the plot now
             
-            stop = time.time()
-            time1 = stop - start
-            print("execTime: ", time1)
+            #stop = time.time()
+            #time1 = stop - start
+            #print("execTime: ", time1)
 ### MAIN PROGRAM #####    
 # this is a brutal infinite loop calling your realtime data plot
 while True: update()
